@@ -1,0 +1,19 @@
+{
+  "name": "@livinglogic-components/button",
+  "version": "0.0.0",
+  "description": "a button component",
+  "main": "index.js",
+  "author": "René Schwarzinger",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^0.3.2",
+    "vue": "^2.6.10"
+  }
+}
