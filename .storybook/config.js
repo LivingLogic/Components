@@ -1,4 +1,5 @@
-import { configure } from '@storybook/vue';
+import { configure, addParameters } from '@storybook/vue';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 // set viewports
 addParameters({
@@ -9,4 +10,4 @@ addParameters({
 });
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /\.stories\.js$/), module);
+configure(require.context('../components', true, /\.stories\.ts$/), module);
