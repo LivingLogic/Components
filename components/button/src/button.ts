@@ -14,7 +14,6 @@ export const ButtonWithoutTemplate = createComponent({
     const styleObj = computed(() => ({
       '--internal-button-color': `var(--ion-color-${props.color}, black)`
     }));
-    console.log("hello world");
     return {
       props,
       emit,
