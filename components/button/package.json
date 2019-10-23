@@ -6,6 +6,10 @@
   "author": "René Schwarzinger",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LivingLogic/Components"
+  },
   "devDependencies": {
     "typescript": "^3.6.4"
   },
