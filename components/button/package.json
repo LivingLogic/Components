@@ -1,6 +1,6 @@
 {
   "name": "@livinglogic-components/button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a button component",
   "main": "dist/button.responsive.js",
   "author": "René Schwarzinger",
