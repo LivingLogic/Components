@@ -4,7 +4,7 @@ import Vue from 'vue';
 import CompositionApi, { createComponent, reactive } from '@vue/composition-api';
 import LLButton from './button.responsive';
 import css from './responsive.scss';
-// import './button.responsive.wc';
+import './button.responsive.wc';
 
 const style = document.createElement('style');
 const head = document.getElementsByTagName('head')[0];
