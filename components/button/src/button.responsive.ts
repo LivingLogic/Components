@@ -4,7 +4,7 @@ import { ButtonWithoutTemplate } from './button';
 export default createComponent({
   ...ButtonWithoutTemplate,
   template: `
-    <button :style="styleObj" class="ll-button" @click="emit('test')">
+    <button :style="styleObj" class="ll-button" @click="emit('click')">
       <slot />
     </button>
   `

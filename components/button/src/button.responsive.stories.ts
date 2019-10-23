@@ -1,16 +1,16 @@
-import { withKnobs, text } from '@storybook/addon-knobs';
+///<reference path="../../../shims-scss.d.ts" />
+import { text } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import CompositionApi, { createComponent, reactive } from '@vue/composition-api';
 import LLButton from './button.responsive';
 import css from './responsive.scss';
-import './button.responsive.wc';
+// import './button.responsive.wc';
 
 const style = document.createElement('style');
 const head = document.getElementsByTagName('head')[0];
 style.innerHTML = css + `
   :root {
-    --ion-color-primary: yellow;
-    --ion-color-favorite: orange;
+    --ion-color-primary: #3880FF;
     --internal-button-color: black;
   }
 `
@@ -55,7 +55,7 @@ export const ClickCounter = () => createComponent({
     },
   },
   components: { LLButton },
-  template: `<LLButton @test="increment" :color="color">Clicked {{state.counter}}</LLButton>`,
+  template: `<LLButton @click="increment" :color="color">Clicked {{state.counter}}</LLButton>`,
   setup() {
     const state = reactive({
       counter: 0,
