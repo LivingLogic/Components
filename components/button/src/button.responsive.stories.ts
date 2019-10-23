@@ -1,3 +1,4 @@
+import { withKnobs, text } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import CompositionApi, { createComponent, reactive } from '@vue/composition-api';
 import LLButton from './button.responsive';
@@ -24,18 +25,37 @@ Vue.config.ignoredElements = [
   'll-button',
 ]
 
+// default settings for story
+
 export default {
   title: 'Button Responsive',
 };
 
 export const Basic = () => ({
+  props: {
+    color: {
+      default: text('Color', 'primary'),
+    },
+    text: {
+      default: text('Text', 'hello Developer'),
+    },
+  },
   components: { LLButton },
-  template: `<LLButton>Hello World</LLButton>`
+  template: `<LLButton :color="color">{{text}}</LLButton>`
 })
 
+Basic.story = {
+
+}
+
 export const ClickCounter = () => createComponent({
+  props: {
+    color: {
+      default: text('Color', 'primary'),
+    },
+  },
   components: { LLButton },
-  template: `<LLButton @test="increment" color="favorite">Clicked {{state.counter}}</LLButton>`,
+  template: `<LLButton @test="increment" :color="color">Clicked {{state.counter}}</LLButton>`,
   setup() {
     const state = reactive({
       counter: 0,
@@ -52,7 +72,10 @@ export const ClickCounter = () => createComponent({
 
 export const NativeWC = () => ({
   template: `
-    <ll-button id="wc" color="favorite">Native WC</ll-button>
+    <div>
+      <ll-button id="wc" color="primary">Native WC Primary</ll-button> <br />
+      <ll-button id="wc" color="favorite">Native WC Favorite</ll-button>
+    </div>
   `,
   mounted() {
 

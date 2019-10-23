@@ -1,4 +1,4 @@
-import { createComponent, ref } from '@vue/composition-api';
+import { createComponent, ref, computed } from '@vue/composition-api';
 
 export const props = {
   color: {
@@ -11,9 +11,10 @@ export const props = {
 export const ButtonWithoutTemplate = createComponent({
   props,
   setup(props, { emit }) {
-    const styleObj = ref({
+    const styleObj = computed(() => ({
       '--internal-button-color': `var(--ion-color-${props.color}, black)`
-    });
+    }));
+    console.log("hello world");
     return {
       props,
       emit,
