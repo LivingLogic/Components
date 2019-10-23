@@ -26,5 +26,9 @@
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
     "what-input": "^5.2.6"
+  },
+  "gitHead": "08151df97934574e13204d0a98e212285c2cd099",
+  "publishConfig": {
+    "access": "public"
   }
 }
