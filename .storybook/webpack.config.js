@@ -14,19 +14,13 @@ module.exports = function ({ config }) {
       // Optional
     ],
   });
-  config.resolve.extensions.push('.ts', '.tsx', '.scss');
 
   config.module.rules.push({
-    test: /\.s[ac]ss$/i,
-    use: [
-      // Creates `style` nodes from JS strings
-      'style-loader',
-      // Translates CSS into CommonJS
-      'css-loader',
-      // Compiles Sass to CSS
-      'sass-loader',
-    ],
-  })
+    test: /\.scss$/,
+    use: ['to-string-loader', 'css-loader', 'sass-loader']
+      // Optional
+  });
 
+  config.resolve.extensions.push('.ts', '.tsx');
   return config;
 };

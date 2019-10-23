@@ -1,7 +1,22 @@
 import Vue from 'vue';
-import CompositionApi, { createComponent, reactive } from '@vue/composition-api';
+import CompositionApi, { createComponent, reactive } from '@vue/composition-api';
 import LLButton from './button.responsive';
-import 'foundation-sites/dist/css/foundation.css';
+import css from './responsive.scss';
+import './button.responsive.wc';
+
+const style = document.createElement('style');
+const head = document.getElementsByTagName('head')[0];
+style.innerHTML = css + `
+  :root {
+    --ion-color-primary: yellow;
+    --ion-color-favorite: orange;
+    --internal-button-color: black;
+  }
+`
+  ;
+if (head) {
+  head.appendChild(style);
+}
 
 Vue.use(CompositionApi);
 Vue.config.ignoredElements = [
@@ -14,13 +29,13 @@ export default {
 };
 
 export const Basic = () => ({
-  components: {LLButton},
+  components: { LLButton },
   template: `<LLButton>Hello World</LLButton>`
 })
 
 export const ClickCounter = () => createComponent({
-  components: {LLButton},
-  template: `<LLButton @click="increment">Clicked {{state.counter}}</LLButton>`,
+  components: { LLButton },
+  template: `<LLButton @test="increment" color="favorite">Clicked {{state.counter}}</LLButton>`,
   setup() {
     const state = reactive({
       counter: 0,
@@ -35,8 +50,17 @@ export const ClickCounter = () => createComponent({
   },
 })
 
-export const ClickCounterNative = () => createComponent({
+export const NativeWC = () => ({
   template: `
-    <ll-button>Hello</ll-button>
-  `
+    <ll-button id="wc" color="favorite">Native WC</ll-button>
+  `,
+  mounted() {
+
+    const el = document.getElementById('wc');
+    console.log(el);
+    if (el)
+      el.addEventListener('ll-click', () => {
+        console.log("clicked")
+      })
+  }
 })
